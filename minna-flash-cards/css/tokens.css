@@ -1,0 +1,28 @@
+/* Design tokens: colours and fonts, with light and dark themes.
+   The palette matches the landing page and the HSK app (burgundy accent, blush lines). */
+:root {
+  --bg: #FBF7F6;
+  --surface: #FFFFFF;
+  --ink: #2A0A12;
+  --ink-2: #6E4A52;
+  --line: #EFDCD8;
+  --accent: #550819;
+  --accent-ink: #FFFFFF;
+  --bad: #B03A2A;
+  --bad-ink: #FFFFFF;
+  --font-ui: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-ja: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', 'MS Mincho', serif;
+  --font-kana: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #160B0E; --surface: #221317; --ink: #F6E9EA; --ink-2: #C4A3A9; --line: #3D2329;
+    --accent: #EAA6B3; --accent-ink: #2A0A12; --bad: #FF8E7C; --bad-ink: #2A0A12;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #160B0E; --surface: #221317; --ink: #F6E9EA; --ink-2: #C4A3A9; --line: #3D2329;
+  --accent: #EAA6B3; --accent-ink: #2A0A12; --bad: #FF8E7C; --bad-ink: #2A0A12;
+  color-scheme: dark;
+}
