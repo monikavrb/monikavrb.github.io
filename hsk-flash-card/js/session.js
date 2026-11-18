@@ -18,7 +18,7 @@ function build() {
   }
   // Study tab: words in the Review list are kept out, so they are only practised there
   return CARDS.filter((c) =>
-    prefs.levels.indexOf(c.lv) > -1 && !review.has(c.id) && !(prefs.skip && known.has(c.id)));
+    prefs.levels.includes(c.lv) && !review.has(c.id) && !(prefs.skip && known.has(c.id)));
 }
 
 function setFlipped(v, snap) {
@@ -54,10 +54,15 @@ export function setMode(m) {
   }
 }
 
-export function includeKnown() {
-  prefs.skip = false;
+// Changes preferences, saves them and starts a fresh session with the new settings.
+export function updatePrefs(patch) {
+  Object.assign(prefs, patch);
   save();
   start();
+}
+
+export function includeKnown() {
+  updatePrefs({ skip: false });
 }
 
 export function flip() {

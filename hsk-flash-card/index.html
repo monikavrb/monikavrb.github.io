@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSK 1–5 Flashcards</title>
+<meta name="description" content="Free HSK 1–5 Chinese flashcards with pinyin, tone colours, example sentences and audio. Progress is saved in your browser.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Noto+Sans:wght@500;600&family=Noto+Serif+SC:wght@500;700&display=swap">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/app.css">
+<script type="module" src="js/main.js"></script>
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1>HSK 1–5 Flashcards</h1>
+    <p class="sub" id="sub"></p>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Mode">
+    <button type="button" role="tab" id="tabStudy" aria-selected="true">Study</button>
+    <button type="button" role="tab" id="tabReview" aria-selected="false">Review <span class="badge" id="revCount" hidden>0</span></button>
+  </nav>
+
+  <section class="levels" id="levels" aria-label="Levels to practice"></section>
+
+  <section class="opts">
+    <div class="seg" role="group" aria-label="Card direction">
+      <button type="button" id="dirZh" aria-pressed="true">汉字 → English</button>
+      <button type="button" id="dirEn" aria-pressed="false">English → 汉字</button>
+    </div>
+    <label class="sw" for="skip" id="skipWrap"><input type="checkbox" id="skip"> Skip known</label>
+    <label class="sw" for="shuf"><input type="checkbox" id="shuf"> Shuffle</label>
+  </section>
+
+  <section class="stats" aria-live="polite">
+    <div class="nums">
+      <span>Left <b id="nLeft">0</b></span>
+      <span>Got it <b id="nGot">0</b></span>
+      <span>Again <b id="nAgain">0</b></span>
+    </div>
+    <div class="bar"><i id="prog"></i></div>
+  </section>
+
+  <section id="practice">
+    <div class="stage" id="stage">
+      <button type="button" class="speak" id="speak" aria-label="Play pronunciation" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5H4z"/><path d="M15.5 9a4.2 4.2 0 0 1 0 6"/><path d="M18 6.5a8 8 0 0 1 0 11"/></svg>
+      </button>
+      <div class="card" id="card" role="button" tabindex="0" aria-label="Flip card">
+        <div class="card-inner">
+          <div class="face front" id="front"></div>
+          <div class="face back" id="back"></div>
+        </div>
+      </div>
+    </div>
+    <div class="done" id="done" hidden></div>
+    <div class="actions" id="actions">
+      <button type="button" class="btn again" id="again">Again <kbd>1</kbd></button>
+      <button type="button" class="btn got" id="got">Got it <kbd>2</kbd></button>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="tones" aria-label="Tone colour key">
+      <span class="k">Tones</span>
+      <span class="s t1">mā</span><span class="s t2">má</span><span class="s t3">mǎ</span><span class="s t4">mà</span><span class="s t5">ma</span>
+    </div>
+    <span class="keys">Space flips · 1 again · 2 got it</span>
+    <button type="button" class="link" id="reset">Reset progress</button>
+  </footer>
+
+  <p class="support">
+    Free to use. If it helps your studying,
+    <a href="https://ko-fi.com/YOUR_KOFI_USERNAME" target="_blank" rel="noopener">buy me a coffee on Ko-fi ☕</a>
+  </p>
+</div>
+<script data-goatcounter="https://mxnmxn.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
