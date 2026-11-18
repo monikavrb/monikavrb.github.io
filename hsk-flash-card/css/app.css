@@ -139,7 +139,7 @@ h1 { margin: 0; font-size: 24px; line-height: 1.15; font-weight: 700; letter-spa
 .tabs button[aria-selected="true"] { border-color: var(--accent); background: var(--accent); color: var(--accent-ink); }
 .tabs .badge {
   min-width: 22px; padding: 1px 7px; border-radius: 11px; font-size: 12px; font-variant-numeric: tabular-nums;
-  background: var(--bad); color: #fff;
+  background: var(--bad); color: var(--bad-ink);
 }
 .tabs .badge[hidden] { display: none; }
 .ex { font-family: var(--font-zh); font-size: 21px; font-weight: 500; line-height: 1.5; max-width: 28ch; text-wrap: balance; overflow-wrap: anywhere; color: var(--ink); }
