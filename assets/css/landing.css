@@ -116,8 +116,7 @@ h1 {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 24px;
   font-family: var(--font-mono); font-size: 13px; color: var(--ink-2);
 }
-.site-foot span, .site-foot a { display: inline-flex; align-items: center; min-height: 44px; }
-.site-foot a { color: var(--ink-2); }
+.site-foot span { display: inline-flex; align-items: center; min-height: 44px; }
 
 @media (prefers-reduced-motion: reduce) {
   .card--zh, .card-cta svg { transition: none; }

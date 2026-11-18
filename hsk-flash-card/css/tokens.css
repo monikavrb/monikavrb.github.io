@@ -1,15 +1,17 @@
-/* Design tokens: colours, tone colours and fonts, with light and dark themes. */
+/* Design tokens: colours, tone colours and fonts, with light and dark themes.
+   The palette matches the landing page (burgundy accent, blush lines). */
 :root {
-  --bg: #ECF0ED;
-  --surface: #FAFCFA;
-  --ink: #15201C;
-  --ink-2: #53625D;
-  --line: #C7D1CC;
-  --accent: #1B6A5E;
+  --bg: #FBF7F6;
+  --surface: #FFFFFF;
+  --ink: #2A0A12;
+  --ink-2: #6E4A52;
+  --line: #EFDCD8;
+  --accent: #550819;
   --accent-ink: #FFFFFF;
   --bad: #B03A2A;
-  --grid: #D4695A;
-  --grid-soft: #E3A79E;
+  --bad-ink: #FFFFFF;
+  --grid: #C97A78;
+  --grid-soft: #EAC2BA;
   --t1: #C0392B;
   --t2: #B26A0A;
   --t3: #1E7B4B;
@@ -21,15 +23,15 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0F1613; --surface: #18221E; --ink: #E7EFEB; --ink-2: #9CAAA4; --line: #2B3934;
-    --accent: #52BBA8; --accent-ink: #08120F; --bad: #FF8E7C; --grid: #B25A4E; --grid-soft: #5E3B36;
+    --bg: #160B0E; --surface: #221317; --ink: #F6E9EA; --ink-2: #C4A3A9; --line: #3D2329;
+    --accent: #EAA6B3; --accent-ink: #2A0A12; --bad: #FF8E7C; --bad-ink: #2A0A12; --grid: #8E4A55; --grid-soft: #4A2830;
     --t1: #FF7F70; --t2: #F2AB4A; --t3: #55CF90; --t4: #78A8FF; --t5: #9AA7A2;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0F1613; --surface: #18221E; --ink: #E7EFEB; --ink-2: #9CAAA4; --line: #2B3934;
-  --accent: #52BBA8; --accent-ink: #08120F; --bad: #FF8E7C; --grid: #B25A4E; --grid-soft: #5E3B36;
+  --bg: #160B0E; --surface: #221317; --ink: #F6E9EA; --ink-2: #C4A3A9; --line: #3D2329;
+  --accent: #EAA6B3; --accent-ink: #2A0A12; --bad: #FF8E7C; --bad-ink: #2A0A12; --grid: #8E4A55; --grid-soft: #4A2830;
   --t1: #FF7F70; --t2: #F2AB4A; --t3: #55CF90; --t4: #78A8FF; --t5: #9AA7A2;
   color-scheme: dark;
 }
