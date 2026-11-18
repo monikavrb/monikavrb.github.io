@@ -89,11 +89,11 @@ export function createChips(onToggle) {
 }
 
 function renderChips() {
-  const counts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+  const counts = Object.fromEntries(LEVELS.map((lv) => [lv, 0]));
   CARDS.forEach((c) => { if (known.has(c.id)) counts[c.lv]++; });
   LEVELS.forEach((lv) => {
     const b = chipEls[lv];
-    b.setAttribute('aria-pressed', prefs.levels.indexOf(lv) > -1 ? 'true' : 'false');
+    b.setAttribute('aria-pressed', prefs.levels.includes(lv) ? 'true' : 'false');
     b.querySelector('small').textContent = counts[lv] + ' / ' + TOTAL[lv] + ' known';
     b.querySelector('i').style.width = (TOTAL[lv] ? counts[lv] / TOTAL[lv] * 100 : 0) + '%';
   });
