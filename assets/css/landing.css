@@ -79,14 +79,27 @@ h1 {
 }
 .lede strong { font-weight: 500; color: var(--ink); }
 
-/* Language cards */
-.cards { display: flex; flex-wrap: wrap; gap: clamp(12px, 2vw, 24px); margin-top: clamp(4px, 1.5vh, 16px); }
+/* Language cards: one column on phones; on tablets Mandarin spans the top row with the
+   two Japanese books side by side under it; three across on wide screens. */
+.cards { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(12px, 2vw, 24px); margin-top: clamp(4px, 1.5vh, 16px); }
+@media (min-width: 640px) {
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .card--zh { grid-column: 1 / -1; }
+}
+@media (min-width: 1024px) {
+  .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .card--zh { grid-column: auto; }
+}
 .card {
-  flex: 1 1 360px; min-width: 0;
+  min-width: 0;
   display: flex; flex-direction: column; gap: clamp(10px, 1.6vh, 18px);
   padding: clamp(20px, 2.6vw, 36px);
   border-radius: 24px; text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease;
 }
+.card:hover { transform: translateY(-3px); }
+.card:hover .card-cta svg { transform: translateX(4px); }
+.card:focus-visible { outline-offset: 4px; border-radius: 24px; }
 .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
 .glyph { font-weight: 700; font-size: clamp(40px, 5vw, 72px); line-height: 1; }
 .pill { padding: 6px 12px; border-radius: 999px; font-family: var(--font-mono); font-size: 13px; color: var(--ink); white-space: nowrap; }
@@ -95,19 +108,23 @@ h1 {
 .card-cta { display: inline-flex; align-items: center; gap: 8px; margin-top: auto; font-weight: 600; font-size: 16px; }
 .card-cta svg { transition: transform .2s ease; }
 
-.card--zh { background: var(--accent); color: #FFFFFF; transition: transform .2s ease, box-shadow .2s ease; }
-.card--zh:hover { color: #FFFFFF; transform: translateY(-3px); box-shadow: 0 14px 30px -18px rgba(85, 8, 25, .7); }
-.card--zh:hover .card-cta svg { transform: translateX(4px); }
-.card--zh:focus-visible { outline-offset: 4px; border-radius: 24px; }
+.card--zh { background: var(--accent); color: #FFFFFF; }
+.card--zh:hover { color: #FFFFFF; box-shadow: 0 14px 30px -18px rgba(85, 8, 25, .7); }
 .card--zh .glyph { font-family: var(--font-zh); color: var(--accent-soft); }
 .card--zh .pill { background: var(--accent-soft); }
 .card--zh .card-desc { color: var(--accent-soft); }
 
-.card--ja { background: var(--accent-soft); color: var(--ink); }
-.card--ja .glyph { font-family: var(--font-ja); color: var(--accent); }
+/* Minna no Nihongo I (blush) and II (white with a blush outline) */
+.card--ja, .card--ja2 { color: var(--ink); }
+.card--ja:hover, .card--ja2:hover { color: var(--ink); box-shadow: 0 14px 30px -18px rgba(85, 8, 25, .5); }
+.card--ja .glyph, .card--ja2 .glyph { font-family: var(--font-ja); color: var(--accent); }
+.card--ja .card-desc, .card--ja2 .card-desc { color: var(--ink-3); }
+.card--ja .card-cta, .card--ja2 .card-cta { color: var(--accent); }
+.card--ja { background: var(--accent-soft); }
 .card--ja .pill { background: var(--bg); }
-.card--ja .card-desc { color: var(--ink-3); }
-.card--ja .card-cta { font-family: var(--font-mono); font-weight: 500; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-3); }
+.card--ja2 { background: var(--surface); box-shadow: inset 0 0 0 1.5px var(--accent-soft); }
+.card--ja2:hover { box-shadow: inset 0 0 0 1.5px var(--accent-soft), 0 14px 30px -18px rgba(85, 8, 25, .5); }
+.card--ja2 .pill { background: var(--accent-soft); }
 
 /* Footer */
 .site-foot { border-top: 1px solid var(--line); }
@@ -119,7 +136,6 @@ h1 {
 .site-foot span { display: inline-flex; align-items: center; min-height: 44px; }
 
 @media (prefers-reduced-motion: reduce) {
-  .card--zh, .card-cta svg { transition: none; }
-  .card--zh:hover { transform: none; }
-  .card--zh:hover .card-cta svg { transform: none; }
+  .card, .card-cta svg { transition: none; }
+  .card:hover, .card:hover .card-cta svg { transform: none; }
 }
